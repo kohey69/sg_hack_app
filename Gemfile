@@ -3,6 +3,7 @@ gem 'rails', '~> 8.0.2'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'haml-rails'
 gem 'jsbundling-rails'
 gem 'kamal', require: false
 gem 'pg'
