@@ -1,6 +1,7 @@
 class FoodSet < ApplicationRecord
   acts_as_list
 
+  belongs_to :plan
   has_many :food_set_items, dependent: :destroy
   has_many :foods, through: :food_set_items
 

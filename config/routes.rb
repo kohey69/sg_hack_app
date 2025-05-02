@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  namespace :user do
+    resource :plan, only: %i[show]
+  end
+
   namespace :admins do
     root 'food_sets#index'
 

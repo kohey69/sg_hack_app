@@ -1,2 +1,82 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+.hero.py-5.bg-light
+  .container.text-center
+    %h1.display-5.mb-3 定期食材配達サービス
+    %p.lead.mb-4
+      新鮮な食材セットを、あなたのライフスタイルに合わせて定期お届け。
+      面倒な手続きは不要、最短 3 分で登録完了！
+    = link_to "今すぐ無料で始める", new_user_registration_path, class: "btn btn-primary btn-lg me-2"
+    - if user_signed_in?
+      = link_to "マイプランを見る", user_plan_path, class: "btn btn-outline-secondary btn-lg"
+
+.container.my-5
+  %h2.text-center.mb-4 できること
+  .row.g-4
+    .col-md-4
+      .card.h-100.border-0
+        .card-body.text-center
+          %i.bi.bi-person-plus.display-6.text-primary
+          %h5.card-title.mt-3 簡単登録
+          %p.card-text
+            メール認証なしでサクッと会員登録。
+            面倒な入力を減らし、すぐにサービスを体験できます。
+    .col-md-4
+      .card.h-100.border-0
+        .card-body.text-center
+          %i.bi.bi-box-seam.display-6.text-primary
+          %h5.card-title.mt-3 プラン選択
+          %p.card-text
+            3 つの食材プランをご用意。
+            食事スタイルやご予算に合わせて自由に切り替え可能。
+    .col-md-4
+      .card.h-100.border-0
+        .card-body.text-center
+          %i.bi.bi-calendar-check.display-6.text-primary
+          %h5.card-title.mt-3 配送スケジュール
+          %p.card-text
+            「週 1 回」または「月 2 回」を選択。
+            配送日の 3 日前ならいつでも変更できます。
+  .row.g-4.mt-2
+    .col-md-4
+      .card.h-100.border-0
+        .card-body.text-center
+          %i.bi.bi-clock-history.display-6.text-primary
+          %h5.card-title.mt-3 時間帯指定
+          %p.card-text
+            午前／午後の時間帯を指定して、
+            受け取りやすい時間にお届けします。
+    .col-md-4
+      .card.h-100.border-0
+        .card-body.text-center
+          %i.bi.bi-truck.display-6.text-primary
+          %h5.card-title.mt-3 配送停止も簡単
+          %p.card-text
+            長期不在や旅行の際は問い合わせフォームから
+            ワンクリックで一時停止リクエストが可能です。
+    .col-md-4
+      .card.h-100.border-0
+        .card-body.text-center
+          %i.bi.bi-cash-coin.display-6.text-primary
+          %h5.card-title.mt-3 代金引換のみ
+          %p.card-text
+            受け取り時に現金でお支払い。請求書は商品に同梱、
+            クレジットカード登録は不要です。
+
+.bg-body-tertiary.py-5
+  .container
+    %h2.text-center.mb-4 ご利用の流れ
+    %ol.list-group.list-group-numbered
+      %li.list-group-item.border-0
+        %strong 1. 会員登録 —
+        氏名・住所・電話番号のみで登録完了
+      %li.list-group-item.border-0
+        %strong 2. プラン選択 —
+        3 つのプランからお好みを選択
+      %li.list-group-item.border-0
+        %strong 3. スケジュール設定 —
+        週 1 / 月 2 のどちらかと時間帯を指定
+      %li.list-group-item.border-0
+        %strong 4. 初回お届け —
+        最短翌週からお届けスタート！
+      %li.list-group-item.border-0
+        %strong 5. 変更・停止 —
+        マイページから簡単に手続き
