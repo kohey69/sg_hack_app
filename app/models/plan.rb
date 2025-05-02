@@ -4,4 +4,7 @@ class Plan < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+
+  scope :default_order, -> { order(:id) }
+  scope :published, -> { where(published: true) }
 end

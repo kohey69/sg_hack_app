@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
     resources :food_sets, only: %i[show new create edit update destroy]
     resources :foods
+    resources :plans
   end
 
   if Rails.env.development?

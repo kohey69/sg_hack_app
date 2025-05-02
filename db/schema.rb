@@ -55,6 +55,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_02_053612) do
   create_table "plans", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
+    t.boolean "published", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
