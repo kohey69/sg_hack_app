@@ -1,0 +1,8 @@
+-# locals: (f:)
+
+.nested-form-wrapper{ data: { new_record: "#{ f.object.new_record? }" } }
+  .d-flex.gap-2
+    = f.association :food, collection: Food.all, prompt: "食品を選択してください"
+    = f.input :quantity, input_html: { min: 1 }
+    = f.input :_destroy, as: :hidden
+    %button.align-self-end.mb-3.btn.btn-danger{"data-action" => "nested-form#remove", type: :button } 削除

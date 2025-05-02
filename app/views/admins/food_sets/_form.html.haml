@@ -1,9 +1,16 @@
 -# locals: (food_set:)
 
-= simple_form_for [:admins, food_set] do |f|
+= simple_form_for [:admins, food_set],
+  html: { data: { controller: "nested-form", "nested_form_wrapper_selector_value": ".nested-fields" } } do |f|
+
   .form-inputs
     = f.input :name
     = f.input :description
     = f.input :price
-  .form-actions
-    = f.button :submit
+
+  .fs-4 食品セット構成品
+  = render 'admins/food_sets/food_set_item_form', f:
+
+  .form-actions.mt-4
+    = f.button :submit, class: "btn btn-primary"
+    = link_to "キャンセル", admins_food_sets_path, class: "btn btn-secondary"
