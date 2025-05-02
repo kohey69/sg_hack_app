@@ -3,6 +3,7 @@ gem 'rails', '~> 8.0.2'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'haml-rails'
 gem 'jsbundling-rails'
 gem 'kamal', require: false
 gem 'pg'
@@ -19,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'haml_lint'
   gem 'sgcop', github: 'SonicGarden/sgcop', branch: 'main'
   gem 'web-console'
 end
