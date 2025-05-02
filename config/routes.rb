@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
 
+  devise_for :administrators, controllers: {
+    sessions: 'admins/sessions',
+  }
+
   root 'home#index'
 
   namespace :admins do
