@@ -1,0 +1,24 @@
+%h1 食品一覧
+
+= link_to '新規作成', new_admins_food_path, class: 'btn btn-primary'
+
+= paginate @foods
+
+%table.table
+  %thead
+    %tr
+      %th{ scope: 'col' }= Food.human_attribute_name(:id)
+      %th{ scope: 'col' }= Food.human_attribute_name(:name)
+      %th{ scope: 'col' }= Food.human_attribute_name(:refrigerated)
+      %th{ scope: 'col' }
+  %tbody
+    - @foods.each do |food|
+      %tr
+        %td= food.name
+        %td= truncate(food.description, length: 50)
+        %td= food.refrigerated? ? '✓' : '✗'
+        %td
+          = link_to '編集', edit_admins_food_path(food), class: 'btn btn-sm btn-secondary'
+          = link_to '削除', admins_food_path(food), method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-sm btn-danger'
+
+= paginate @foods

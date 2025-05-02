@@ -1,0 +1,24 @@
+%h1 食材セット一覧
+
+= link_to '新規作成', new_admins_food_set_path, class: 'btn btn-primary'
+
+= paginate @food_sets
+
+%table.table
+  %thead
+    %tr
+      %th{ scope: 'col' }= FoodSet.human_attribute_name(:id)
+      %th{ scope: 'col' }= FoodSet.human_attribute_name(:name)
+      %th{ scope: 'col' }= FoodSet.human_attribute_name(:description)
+      %th{ scope: 'col' }
+  %tbody
+    - @food_sets.each do |food_set|
+      %tr
+        %th{ scope: 'row' }= food_set.id
+        %td= food_set.name
+        %td= food_set.description
+        %td
+          = link_to '編集', edit_admins_food_set_path(food_set), class: 'btn btn-secondary btn-sm'
+          = link_to '削除', admins_food_set_path(food_set), class: 'btn btn-danger btn-sm', data: { turbo_method: :delete, turbo_confirm: '本当によろしいですか？' }
+
+= paginate @food_sets

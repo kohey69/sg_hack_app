@@ -1,25 +1,32 @@
-source "https://rubygems.org"
-gem "rails", "~> 8.0.2"
+source 'https://rubygems.org'
+gem 'rails', '~> 8.0.2'
 
-gem "propshaft"
-
-gem "pg", "~> 1.1"
-gem "puma", ">= 5.0"
-gem "jsbundling-rails"
-gem "turbo-rails"
-gem "stimulus-rails"
-gem "cssbundling-rails"
-gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem "bootsnap", require: false
-gem "kamal", require: false
-gem "thruster", require: false
+gem 'acts_as_list'
+gem 'bootsnap', require: false
+gem 'cssbundling-rails'
+gem 'devise'
+gem 'enumerize'
+gem 'haml-rails'
+gem 'jsbundling-rails'
+gem 'kamal', require: false
+gem 'kaminari'
+gem 'pg'
+gem 'propshaft'
+gem 'puma'
+gem 'simple_form'
+gem 'simple_calendar'
+gem 'stimulus-rails'
+gem 'thruster', require: false
+gem 'turbo-rails'
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem "brakeman", require: false
-  gem "rubocop-rails-omakase", require: false
+  gem 'brakeman', require: false
+  gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
 end
 
 group :development do
-  gem "web-console"
+  gem 'haml_lint'
+  gem 'sgcop', github: 'SonicGarden/sgcop', branch: 'main'
+  gem 'web-console'
+  gem 'letter_opener_web'
 end

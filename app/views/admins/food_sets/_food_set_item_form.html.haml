@@ -1,0 +1,10 @@
+-# locals: (f:)
+
+.border.rounded.p-1{ data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } }
+  %template{ data: { nested_form_target: 'template' } }
+    = f.simple_fields_for :food_set_items, FoodSetItem.new, child_index: 'NEW_RECORD' do |food_stuffs_form|
+      = render 'food_set_item_fields', f: food_stuffs_form
+  = f.simple_fields_for :food_set_items do |food_stuffs_form|
+    = render 'food_set_item_fields', f: food_stuffs_form
+  %div{ data: { nested_form_target: "target" } }
+  %button.btn.btn-sm.btn-primary{ type: :button, data: { action: "nested-form#add" } } 追加

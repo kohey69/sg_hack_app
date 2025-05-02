@@ -1,0 +1,18 @@
+-# app/views/admins/foods/show.html.haml
+%h1= @food.name
+
+.card.mb-3
+  .card-body
+    %p
+      %strong 名前:
+      = @food.name
+    %p
+      %strong 説明:
+      = @food.description
+    %p
+      %strong 冷凍:
+      = @food.refrigerated? ? '✓' : '✗'
+
+.mb-3
+  = link_to '編集', edit_admins_food_path(@food), class: 'btn btn-secondary'
+  = link_to '削除', admins_food_path(@food), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger'
