@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+
+  devise_for :administrators, controllers: {
+    sessions: 'admins/sessions',
+  }
+
+  root 'home#index'
+
+  namespace :admins do
+    root 'home#index'
+  end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
 end
