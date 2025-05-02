@@ -1,0 +1,42 @@
+.container.my-5
+  %h1.mb-3= @plan.name
+  %p.lead= simple_format(@plan.description)
+
+  - if @plan.published?
+    %span.badge.bg-success.mb-4 公開中
+  - else
+    %span.badge.bg-secondary.mb-4 非公開
+  %hr
+
+  - if @plan.food_sets.any?
+    - @plan.food_sets.default_order.each do |food_set|
+      .card.mb-4.shadow-sm
+        .card-header.d-flex.justify-content-between.align-items-center
+          %span.fw-bold= food_set.name
+          %span.badge.bg-primary.fs-6= number_to_currency(food_set.price)
+
+        .card-body
+          %p.card-text= simple_format(food_set.description)
+
+          - if food_set.food_set_items.any?
+            %table.table.table-sm.mt-3
+              %thead
+                %tr
+                  %th.w-10.text-center #
+                  %th 食材名
+                  %th.w-10.text-center 数
+                  %th.w-15.text-center 保存
+              %tbody
+                - food_set.food_set_items.default_order.each do |item|
+                  %tr
+                    %td.text-center= item.position
+                    %td= item.food.name
+                    %td.text-center= item.quantity
+                    %td.text-center
+                      - if item.food.refrigerated?
+                        %span.badge.bg-info.text-dark 要冷蔵
+                      - else
+                        %span.badge.bg-warning.text-dark 常温
+  - else
+    .alert.alert-secondary.mt-4
+      このプランには食材セットが登録されていません。
