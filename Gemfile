@@ -3,6 +3,7 @@ gem 'rails', '~> 8.0.2'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'devise'
 gem 'haml-rails'
 gem 'jsbundling-rails'
 gem 'kamal', require: false
@@ -23,4 +24,5 @@ group :development do
   gem 'haml_lint'
   gem 'sgcop', github: 'SonicGarden/sgcop', branch: 'main'
   gem 'web-console'
+  gem 'letter_opener_web'
 end
