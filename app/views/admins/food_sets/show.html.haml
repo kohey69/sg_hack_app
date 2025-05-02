@@ -1,0 +1,4 @@
+= render 'admins/food_sets/food_set', food_set: @food_set
+
+= link_to '編集する', edit_admins_food_set_path(@food_set), class: 'btn btn-secondary'
+= link_to '削除する', admins_food_set_path(@food_set), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: '削除すると参加ユーザーが参照できなくなりますがよろしいですか？' }

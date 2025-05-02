@@ -1,0 +1,10 @@
+-# locals(food:)
+
+= simple_form_for [:admins, food] do |f|
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :refrigerated
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
