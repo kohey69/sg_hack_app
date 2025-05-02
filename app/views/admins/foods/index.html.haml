@@ -7,10 +7,10 @@
 %table.table
   %thead
     %tr
-      %th 名前
-      %th 説明
-      %th 冷凍
-      %th アクション
+      %th{ scope: 'col' }= Food.human_attribute_name(:id)
+      %th{ scope: 'col' }= Food.human_attribute_name(:name)
+      %th{ scope: 'col' }= Food.human_attribute_name(:refrigerated)
+      %th{ scope: 'col' }
   %tbody
     - @foods.each do |food|
       %tr
