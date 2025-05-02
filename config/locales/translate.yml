@@ -9,6 +9,12 @@ ja:
     attributes:
       user:
         plan_id: 登録するプラン
+        postal_code: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        address_line1: 丁目番地
+        address_line2: 物件名など
+        phone_number: 電話番号
       plan:
         name: プラン名
         description: プランの説明

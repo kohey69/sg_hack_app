@@ -5,4 +5,10 @@ class User < ApplicationRecord
 
   validates :plan_id, presence: true
   validates :name, presence: true
+  validates :postal_code, presence: true
+  validates :prefecture, presence: true
+  validates :city, presence: true
+  validates :address_line1, presence: true
+  validates :address_line2, presence: true
+  validates :phone_number, presence: true
 end
