@@ -45,7 +45,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_02_031929) do
   create_table "foods", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.boolean "frozen", default: false, null: false
+    t.boolean "refrigerated", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
