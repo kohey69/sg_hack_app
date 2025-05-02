@@ -18,4 +18,8 @@ class DeliverySchedule < ApplicationRecord
       end
     end
   end
+
+  def start_time
+    delivery_on
+  end
 end

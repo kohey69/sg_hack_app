@@ -3,7 +3,7 @@ class User::DeliverySchedulesController < User::ApplicationController
   before_action :set_schedule, only: %i[edit update]
 
   def index
-    @delivery_schedules = current_user.delivery_schedules.order(:delivery_on)
+    @delivery_schedules = current_user.delivery_schedules.where(delivery_on: range_for_month)
   end
 
   def new
@@ -40,5 +40,10 @@ class User::DeliverySchedulesController < User::ApplicationController
 
   def schedule_params
     params.require(:delivery_schedule).permit(:delivery_on)
+  end
+
+  def range_for_month
+    first_day = (params[:start_date]&.to_date || Date.current).beginning_of_month
+    first_day..first_day.end_of_month
   end
 end

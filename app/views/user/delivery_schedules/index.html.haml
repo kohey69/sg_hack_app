@@ -1,2 +1,16 @@
-%h1 User::DeliverySchedules#index
-%p Find me in app/views/user/delivery_schedules/index.html.haml
+/ app/views/user/delivery_schedules/index.html.haml
+%h1.mb-6 配送スケジュール
+
+/ simple_calendar の月次カレンダー
+= month_calendar events: @delivery_schedules, attribute: :delivery_on do |date, schedules|
+  %p.font-semibold= date.strftime('%-d')
+
+  - schedules.each do |schedule|
+    %p.mt-1
+      %i.bi.bi-truck.me-1
+      = l(schedule.delivery_on, format: :long)
+      = link_to '編集', edit_user_delivery_schedule_path(schedule),
+                class: 'text-blue-600 hover:underline ms-2'
+.mt-8
+  = link_to '新しい配送日を登録', new_user_delivery_schedule_path,
+            class: 'btn btn-primary'
