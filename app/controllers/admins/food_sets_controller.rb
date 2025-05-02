@@ -46,6 +46,11 @@ class Admins::FoodSetsController < Admins::ApplicationController
   end
 
   def food_set_params
-    params.expect(food_set: %i[name description price position])
+    params.expect(food_set: [
+      :name, :description, :price,
+      { food_set_items_attributes: [
+        %i[id food_id quantity position _destroy],
+      ] }
+    ])
   end
 end
