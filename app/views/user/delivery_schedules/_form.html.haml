@@ -1,0 +1,8 @@
+-# locals: (delivery_schedule:)
+
+= simple_form_for [:user, delivery_schedule] do |f|
+  .form-inputs
+    = f.input :delivery_on, html5: true
+
+  .form-actions.mt-6.flex.gap-3
+    = f.button :submit, class: 'btn btn-primary'

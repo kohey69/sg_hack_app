@@ -3,6 +3,7 @@ ja:
   activerecord:
     models:
       plan: プラン
+      delivery_schedule: 配達スケジュール
       food: 食品
       food_set: 食品セット
       food_set_item: 食品セット構成品
@@ -20,6 +21,8 @@ ja:
         name: プラン名
         description: プランの説明
         published: 公開
+      delivery_schedule:
+        delivery_on: 配達日
       food:
         name: 名前
         description: 説明

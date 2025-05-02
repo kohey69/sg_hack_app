@@ -9,6 +9,7 @@ class User < ApplicationRecord
   attribute :delivery_schedule_type, :string, default: :weekly
 
   belongs_to :plan
+  has_many :delivery_schedules, dependent: :destroy
 
   validates :plan_id, presence: true
   validates :delivery_schedule_type, presence: true

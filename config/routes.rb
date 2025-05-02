@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     resource :plan, only: %i[show]
+    resources :delivery_schedules, only: %i[index new create edit update destroy]
   end
 
   namespace :admins do
