@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_02_062659) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_02_072344) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,6 +20,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_02_062659) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_administrators_on_email", unique: true
+  end
+
+  create_table "delivery_schedules", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "delivery_on", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_delivery_schedules_on_user_id"
   end
 
   create_table "food_set_items", force: :cascade do |t|
@@ -74,10 +82,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_02_062659) do
     t.string "address_line1", null: false
     t.string "address_line2", null: false
     t.string "phone_number", null: false
+    t.string "delivery_schedule_type", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["plan_id"], name: "index_users_on_plan_id"
   end
 
+  add_foreign_key "delivery_schedules", "users"
   add_foreign_key "food_set_items", "food_sets"
   add_foreign_key "food_set_items", "foods"
   add_foreign_key "food_sets", "plans"

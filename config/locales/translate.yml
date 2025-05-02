@@ -3,12 +3,14 @@ ja:
   activerecord:
     models:
       plan: プラン
+      delivery_schedule: 配達スケジュール
       food: 食品
       food_set: 食品セット
       food_set_item: 食品セット構成品
     attributes:
       user:
         plan_id: 登録するプラン
+        delivery_schedule_type: 配送頻度
         postal_code: 郵便番号
         prefecture: 都道府県
         city: 市区町村
@@ -19,6 +21,8 @@ ja:
         name: プラン名
         description: プランの説明
         published: 公開
+      delivery_schedule:
+        delivery_on: 配達日
       food:
         name: 名前
         description: 説明
@@ -39,6 +43,13 @@ ja:
         position: 表示位置
         created_at: 作成日時
         updated_at: 更新日時
-
-
-
+  enumerize:
+    user:
+      delivery_schedule_type:
+        weekly: 週１回
+        twice_monthly: 月２回
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+    week: 週
+    today: 今日
