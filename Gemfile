@@ -9,6 +9,7 @@ gem 'kamal', require: false
 gem 'pg'
 gem 'propshaft'
 gem 'puma'
+gem 'simple_form'
 gem 'stimulus-rails'
 gem 'thruster', require: false
 gem 'turbo-rails'
