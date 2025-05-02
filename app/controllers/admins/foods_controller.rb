@@ -1,4 +1,3 @@
-# app/controllers/admins/foods_controller.rb
 class Admins::FoodsController < Admins::ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
 
