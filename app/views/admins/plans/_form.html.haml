@@ -1,0 +1,10 @@
+-# locals(plan:)
+
+= simple_form_for [:admins, plan] do |f|
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :published
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

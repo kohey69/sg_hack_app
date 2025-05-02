@@ -2,10 +2,15 @@
 ja:
   activerecord:
     models:
+      plan: プラン
       food: 食品
       food_set: 食品セット
       food_set_item: 食品セット構成品
     attributes:
+      plan:
+        name: プラン名
+        description: プランの説明
+        published: 公開
       food:
         name: 名前
         description: 説明
