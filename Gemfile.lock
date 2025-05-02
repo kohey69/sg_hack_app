@@ -300,6 +300,9 @@ GEM
       rubocop-rspec (~> 3.5)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
+    simple_form (5.3.1)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     sshkit (1.24.0)
       base64
       logger
@@ -365,6 +368,7 @@ DEPENDENCIES
   puma
   rails (~> 8.0.2)
   sgcop!
+  simple_form
   stimulus-rails
   thruster
   turbo-rails
