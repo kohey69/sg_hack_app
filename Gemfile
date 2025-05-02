@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 gem 'rails', '~> 8.0.2'
 
-gem 'propshaft'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 gem 'kamal', require: false
 gem 'pg'
+gem 'propshaft'
 gem 'puma'
 gem 'stimulus-rails'
 gem 'thruster', require: false
