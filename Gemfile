@@ -9,6 +9,7 @@ gem 'enumerize'
 gem 'haml-rails'
 gem 'jsbundling-rails'
 gem 'kamal', require: false
+gem 'kaminari'
 gem 'pg'
 gem 'propshaft'
 gem 'puma'
