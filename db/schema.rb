@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_02_031929) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_02_053612) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -40,12 +40,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_02_031929) do
     t.integer "position", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "plan_id", null: false
+    t.index ["plan_id"], name: "index_food_sets_on_plan_id"
   end
 
   create_table "foods", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
     t.boolean "refrigerated", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.boolean "published", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,9 +67,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_02_031929) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "plan_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["plan_id"], name: "index_users_on_plan_id"
   end
 
   add_foreign_key "food_set_items", "food_sets"
   add_foreign_key "food_set_items", "foods"
+  add_foreign_key "food_sets", "plans"
+  add_foreign_key "users", "plans"
 end

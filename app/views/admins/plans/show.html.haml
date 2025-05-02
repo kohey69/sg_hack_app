@@ -1,0 +1,18 @@
+-# app/views/admins/plans/show.html.haml
+%h1= @plan.name
+
+.card.mb-3
+  .card-body
+    %p
+      %strong 名前:
+      = @plan.name
+    %p
+      %strong 説明:
+      = @plan.description
+    %p
+      %strong 公開:
+      = @plan.published? ? '✓' : '✗'
+
+.mb-3
+  = link_to '編集', edit_admins_plan_path(@plan), class: 'btn btn-secondary'
+  = link_to '削除', admins_plan_path(@plan), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger'

@@ -1,0 +1,26 @@
+%h1 プラン一覧
+
+= link_to '新規作成', new_admins_plan_path, class: 'btn btn-primary'
+
+= paginate @plans
+
+%table.table
+  %thead
+    %tr
+      %th{ scope: 'col' }= Plan.human_attribute_name(:id)
+      %th{ scope: 'col' }= Plan.human_attribute_name(:name)
+      %th{ scope: 'col' }= Plan.human_attribute_name(:description)
+      %th{ scope: 'col' }= Plan.human_attribute_name(:published)
+      %th{ scope: 'col' }
+  %tbody
+    - @plans.each do |plan|
+      %tr
+        %th{ scope: 'row' }= plan.id
+        %td= plan.name
+        %td= plan.description
+        %td= plan.published? ? '公開' : '非公開'
+        %td
+          = link_to '編集', edit_admins_plan_path(plan), class: 'btn btn-secondary btn-sm'
+          = link_to '削除', admins_plan_path(plan), class: 'btn btn-danger btn-sm', data: { turbo_method: :delete, turbo_confirm: '本当によろしいですか？' }
+
+= paginate @plans
