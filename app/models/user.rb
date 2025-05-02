@@ -1,11 +1,17 @@
 class User < ApplicationRecord
+  extend Enumerize
   # Include default devise modules. Others available are:
   # :confirmable, :recoverable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :rememberable, :validatable
 
+  enumerize :delivery_schedule_type, in: %i[weekly twice_monthly]
+
+  attribute :delivery_schedule_type, :string, default: :weekly
+
   belongs_to :plan
 
   validates :plan_id, presence: true
+  validates :delivery_schedule_type, presence: true
   validates :name, presence: true
   validates :postal_code, presence: true
   validates :prefecture, presence: true
