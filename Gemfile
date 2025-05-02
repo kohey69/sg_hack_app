@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 gem 'rails', '~> 8.0.2'
 
+gem 'acts_as_list'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
+gem 'enumerize'
 gem 'haml-rails'
 gem 'jsbundling-rails'
 gem 'kamal', require: false
