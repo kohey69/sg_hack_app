@@ -1,7 +1,7 @@
 %h2 基本情報編集
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = f.error_notification
   .form-inputs
+    = f.input :plan_id, collection: Plan.published.default_order, prompt: "登録プランを選択してください"
     = f.input :name
     = f.input :email, required: true
     = f.input :password, hint: '変更しない場合は空欄のままにしてください', required: false

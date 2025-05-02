@@ -7,6 +7,8 @@ ja:
       food_set: 食品セット
       food_set_item: 食品セット構成品
     attributes:
+      user:
+        plan_id: 登録するプラン
       plan:
         name: プラン名
         description: プランの説明
