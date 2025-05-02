@@ -5,6 +5,7 @@
       %span.navbar-toggler-icon
     #navbarNavDropdown.collapse.navbar-collapse
       %ul.navbar-nav
+        %li.nav-item= link_to '食材セット', admins_root_path, class: 'nav-link'
         %li.nav-item
           - if administrator_signed_in?
             = link_to 'ログアウト', destroy_administrator_session_path, class: 'nav-link', data: { turbo_method: :delete }
