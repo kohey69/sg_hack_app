@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   namespace :admins do
-    root 'home#index'
+    root 'food_sets#index'
+
+    resources :food_sets, only: %i[show new create edit update destroy]
   end
 
   if Rails.env.development?
