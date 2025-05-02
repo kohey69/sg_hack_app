@@ -48,5 +48,8 @@ ja:
       delivery_schedule_type:
         weekly: 週１回
         twice_monthly: 月２回
-
-
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+    week: 週
+    today: 今日
