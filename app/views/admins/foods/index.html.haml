@@ -1,0 +1,21 @@
+%h1 食品一覧
+
+.mb-3
+  = link_to '新規作成', new_admins_food_path, class: 'btn btn-primary'
+
+%table.table
+  %thead
+    %tr
+      %th 名前
+      %th 説明
+      %th 冷凍
+      %th アクション
+  %tbody
+    - @foods.each do |food|
+      %tr
+        %td= food.name
+        %td= truncate(food.description, length: 50)
+        %td= food.refrigerated? ? '✓' : '✗'
+        %td
+          = link_to '編集', edit_admins_food_path(food), class: 'btn btn-sm btn-secondary'
+          = link_to '削除', admins_food_path(food), method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-sm btn-danger'
