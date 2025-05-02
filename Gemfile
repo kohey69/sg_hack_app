@@ -20,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'haml_lint'
   gem 'sgcop', github: 'SonicGarden/sgcop', branch: 'main'
   gem 'web-console'
 end
